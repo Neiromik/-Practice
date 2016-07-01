@@ -1,6 +1,6 @@
 #include "list.h"
 
-using namespace std;
+
 
 struct element
 {
@@ -15,20 +15,18 @@ struct element
 element *first, *last, *list;
 int n;
 
-
-
-void create_list()
+void MyList:: create_list()
 {
 	system("cls");
 	first = new element;
 	(*first).id = n;
-	printf("\nВведите Имя->");
+	printf("\nEnter name->");
 	cin >> first->name;
-	printf("\nВведите Фамилию->");
+	printf("\nEnter fam->");
 	cin >> first->fam;
-	printf("\nВведите Возраст-> ");
+	printf("\nEnter age-> ");
 	cin >> first->age;
-	printf("\nВведите Пол-> ");
+	printf("\nEnter gender-> ");
 	cin >> first->gender;
 	first->next = NULL;
 
@@ -37,7 +35,7 @@ void create_list()
 	int flag = 1;
 	while (flag)
 	{
-		printf("\nЖелаете продолжить? 1 - Да, 0 - Нет\t");
+		printf("\nWould you like to continue? 1 - Yes, 0 - No\t");
 		cin >> flag;
 		system("cls");
 		if (flag)
@@ -45,13 +43,13 @@ void create_list()
 			n++;
 			list = new element;
 			(*first).id = n;
-			printf("\nВведите Имя->");
+			printf("\nEnter name->");
 			cin >> list->name;
-			printf("\nВведите Фамилию->");
+			printf("\nEnter fam->");
 			cin >> list->fam;
-			printf("\nВведите Возраст-> ");
+			printf("\nEnter age-> ");
 			cin >> list->age;
-			printf("\nВведите Пол-> ");
+			printf("\nEnter gender-> ");
 			cin >> list->gender;
 			list->next = NULL;
 
@@ -66,14 +64,14 @@ void create_list()
 }
 
 
-void output_list()
+void MyList:: output_list()
 {
 
 	system("cls");
 	printf("+-----------------------------------------------------------------------------+\n");
-	printf("|     ID    |      Модель   |      Цена    |    Название     |       Страна   |\n");
+	printf("|     ID    |      Name   |      Fam      |     Age      |       Gender       |\n");
 	printf("+-----------------------------------------------------------------------------+\n");
-	list = first;	//Присвоение текущему указателю
+	list = first;	
 					//адреса начала списка
 	while (list)			//Цикл для вывода данных списка
 	{
@@ -87,24 +85,22 @@ void output_list()
 
 }
 
-void add()
+void MyList:: add()
 {
 	system("cls");
 	n++;
-	printf("ДОБАВЛЕНИЕ ЭЛЕМЕНТА В СПИСОК");
-
 	{
 		last = first;
 		while (last->next) last = last->next;
 		list = new element;
 		(*first).id = n;
-		printf("\nВведите Имя->");
+		printf("\nEnter name->");
 		cin >> list->name;
-		printf("\nВведите Фамилию->");
+		printf("\nEnter fam->");
 		cin >> list->fam;
-		printf("\nВведите Возраст-> ");
+		printf("\nEnter age-> ");
 		cin >> list->age;
-		printf("\nВведите Пол-> ");
+		printf("\nEnter gender-> ");
 		cin >> list->gender;
 		list->next = NULL;
 		last->next = list;
@@ -112,7 +108,7 @@ void add()
 }
 
 
-void del()
+void MyList:: del()
 {
 	if (first != NULL) //Если first не равен NULL, то истина.
 	{
@@ -120,6 +116,5 @@ void del()
 		first = first->next;
 		printf("|  %8d |   %10s  |   %9s  |  %13d  | %14s |\n", list->id, list->name, list->fam, list->age, list->gender);
 		delete list;
-		printf("Элемент успешно удален.\n");
 	}
 }

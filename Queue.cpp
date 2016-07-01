@@ -1,24 +1,25 @@
 #include "list.h"
-using namespace std;
+#include "queue.h"
 
+MyList list_object;
 
-void create_queue()
+void MyQueue:: create_queue()
 {
-	create_list();
+	list_object.create_list();
 }
 
-void enqueue()
+void MyQueue::  enqueue()
 {
-	 add();
+	list_object.add();
 }
 
-void dequeue()
+void MyQueue:: dequeue()
 {
-	del();
+	list_object.del();
 
 }
 
-void output_queue()
+void MyQueue:: output_queue()
 {
-	output_list();
+	list_object.output_list();
 }
