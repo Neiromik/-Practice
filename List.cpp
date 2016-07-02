@@ -1,11 +1,11 @@
 #include "List.h"
 
-
-
 void MyList::first_element()
 {
 	system("cls");
+	n = 1;
 	first = new element;
+	first->number = n;
 	cout << "\nEnter name->";
 	cin >> first->name;
 	cout << "\nEnter fam->";
@@ -16,38 +16,33 @@ void MyList::first_element()
 	cin >> first->gender;
 	first->next = NULL;
 	system("pause");
-	system("cls");
 }
-
 
 void MyList::output_list()
 {
-
 	system("cls");
 	cout << "+-----------------------------------------------------------------------------+\n";
-	cout << "|     ¹     |      Name   |      Fam      |     Age      |       Gender       |\n";
+	cout << "|   Number   |     Name    |      Fam      |     Age      |       Gender      |\n";
 	cout << "+-----------------------------------------------------------------------------+\n";
 	list = first;
-
 	while (list)
 	{
-		printf("|   |   %10s  |   %9s  |  %13d  | %14s |\n", list->name, list->fam, list->age, list->gender);
+		printf("|   %7d  |   %8s  |   %10s  |  %10d  | %17s |\n", list->number, list->name, list->fam, list->age, list->gender);
 		list = list->next;
 		cout << "+-----------------------------------------------------------------------------+\n";
 
 	}
 	_getch();
-	system("cls");
-
 }
 
 void MyList::add()
 {
-	system("cls");
-	{
+		system("cls"); 
+		n++;
 		last = first;
 		while (last->next) last = last->next;
 		list = new element;
+		list->number = n;
 		cout << "\nEnter name->";
 		cin >> list->name;
 		cout << "\nEnter fam->";
@@ -58,17 +53,22 @@ void MyList::add()
 		cin >> list->gender;
 		list->next = NULL;
 		last->next = list;
-	}
 }
-
 
 void MyList::del()
 {
+	system("cls");
 	if (first != NULL)
 	{
 		list = first;
 		first = first->next;
-		printf("|  %8d |   %10s  |   %9s  |  %13d  | %14s |\n", list->name, list->fam, list->age, list->gender);
+		cout << "+-----------------------------------------------------------------------------+\n";
+		cout << "|   Number   |     Name    |      Fam      |     Age      |       Gender      |\n";
+		cout << "+-----------------------------------------------------------------------------+\n";
+		printf("|   %7d  |   %8s  |   %10s  |  %10d  | %17s |\n", list->number, list->name, list->fam, list->age, list->gender);
+		cout << "+-----------------------------------------------------------------------------+\n";
+		cout << "The item is removed.\n";
 		delete list;
+		_getch();
 	}
 }

@@ -1,10 +1,12 @@
 #include "List.h"
+
 class MyQueue
 {
-public:
+	public:
 	void enqueue();
 	void dequeue();
 	void output_queue();
 };
+
 
 

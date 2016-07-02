@@ -1,11 +1,10 @@
 #include "Queue.h"
 
-
 MyList list_object;
 
 void MyQueue::enqueue()
 {
-	if (list_object.first!=NULL)
+	if (list_object.first != NULL)
 	{
 		list_object.add();
 	}
@@ -15,11 +14,9 @@ void MyQueue::enqueue()
 	}
 }
 
-
 void MyQueue::dequeue()
 {
 	list_object.del();
-
 }
 
 void MyQueue::output_queue()

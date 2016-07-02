@@ -10,19 +10,17 @@ struct element
 	char fam[20];
 	char gender[20];
 	int age;
+	int number;
 	element *next;
 };
 
-
 class MyList
 {
-public:
+	public:
 	void first_element();
 	void add();
 	void del();
 	void output_list();
 	element *first, *last, *list;
+	int n;
 };
-
-
-
