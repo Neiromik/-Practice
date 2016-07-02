@@ -1,16 +1,15 @@
 #include <iostream>
 #include <conio.h>
-#include <cstdio>
 
 using namespace std;
 
 struct element
 {
-	char name[20];
-	char fam[20];
-	char gender[20];
-	int age;
+	char type[20];
+	int price;
+	int time;
 	int number;
+	int weight;
 	element *next;
 };
 
