@@ -16,10 +16,9 @@ struct element
 class MyList
 {
 	public:
-	void first_element();
-	void add();
-	void del();
-	void output_list();
-	element *first, *last, *list;
-	int n;
+	int size();
+	int add(element *new_item);
+	element* item(int kol);
+	element* output_list();
+	int items = 1;
 };

@@ -2,24 +2,22 @@
 
 MyList list_object;
 
-void MyQueue::enqueue()
+int MyQueue::size_list()
 {
-	if (list_object.first != NULL)
-	{
-		list_object.add();
-	}
-	else
-	{
-		list_object.first_element();
-	}
+	return list_object.size();
 }
 
-void MyQueue::dequeue()
+element* MyQueue::see_all(int j)
 {
-	list_object.del();
+	return list_object.item(j);
 }
 
-void MyQueue::output_queue()
+int MyQueue::enqueue(element *list)
 {
-	list_object.output_list();
+	return list_object.add(list);
+}
+
+element* MyQueue::dequeue()
+{
+	return list_object.output_list();
 }

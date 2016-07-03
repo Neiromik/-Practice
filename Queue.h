@@ -2,10 +2,11 @@
 
 class MyQueue
 {
-	public:
-	void enqueue();
-	void dequeue();
-	void output_queue();
+    public:
+	int size_list();
+	int enqueue(element* list);
+	element* dequeue();
+	element* see_all(int j);
 };
 
 

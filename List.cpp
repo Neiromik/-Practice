@@ -1,74 +1,57 @@
 #include "List.h"
 
-void MyList::first_element()
+element * first, *last, *list;
+
+ element* MyList::output_list()
+ {
+	 if (first != NULL)
+	 {
+		 list = first;
+		 first = first->next;
+		 return list;
+	 }
+	 else return NULL;
+ }
+
+ int MyList::size()
+ {
+	 int i = 0;
+	 list = first;
+	 while (list != NULL)
+	 {
+		 list = list->next;
+		 i++;
+	 }
+	 return i;
+ }
+
+ element * MyList::item(int kol)
+ {
+	 list = first;
+	 while (items<kol)
+	 {
+		 list = list->next;
+		 items++;
+	 }
+	 return list;
+ }
+
+ int MyList::add(element *new_item)
 {
-	system("cls");
-	n = 1;
-	first = new element;
-	first->number = n;
-	cout << "\nEnter type->";
-	cin >> first->type;
-	cout << "\nEnter weight->";
-	cin >> first->weight;
-	cout << "\nEnter price-> ";
-	cin >> first->price;
-	cout << "\nEnter time-> ";
-	cin >> first->time;
-	first->next = NULL;
-	system("pause");
+		if (first != NULL)
+		{
+			list = new_item;
+			last->next = list;
+			list->next = NULL;
+			last = list;
+		}
+		else
+		{
+			first = new_item;
+			first->next = NULL;
+			last = first;
+		}
+		return 0;
 }
 
-void MyList::output_list()
-{
-	system("cls");
-	cout << "+-----------------------------------------------------------------------------+\n";
-	cout << "|   Number   |     Type   |      Weight    |     Price     |       Time       |\n";
-	cout << "+-----------------------------------------------------------------------------+\n";
-	list = first;
-	while (list)
-	{
-		printf("|   %7d  |   %8s  |   %10d  |  %10d  | %17d |\n", list->number, list->type, list->weight, list->price, list->time);
-		list = list->next;
-		cout << "+-----------------------------------------------------------------------------+\n";
 
-	}
-	_getch();
-}
-
-void MyList::add()
-{
-		system("cls"); 
-		n++;
-		last = first;
-		while (last->next) last = last->next;
-		list = new element;
-		list->number = n;
-		cout << "\nEnter type->";
-		cin >> list->type;
-		cout << "\nEnter weight->";
-		cin >> list->weight;
-		cout << "\nEnter price-> ";
-		cin >> list->price;
-		cout << "\nEnter time-> ";
-		cin >> list->time;
-		list->next = NULL;
-		last->next = list;
-}
-
-void MyList::del()
-{
-	system("cls");
-	if (first != NULL)
-	{
-		list = first;
-		first = first->next;
-		cout << "+-----------------------------------------------------------------------------+\n";
-		cout << "|   Number   |     Type   |      Weight    |     Price     |       Time       |\n";
-		cout << "+-----------------------------------------------------------------------------+\n";
-		printf("|   %7d  |   %8s  |   %10d  |  %10d  | %17d |\n", list->number, list->type, list->weight, list->price, list->time);
-		cout << "+-----------------------------------------------------------------------------+\n";
-		cout << "The item is removed.\n";
-		delete list;
-		_getch();
-	}
-}
