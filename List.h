@@ -1,5 +1,7 @@
 #include <iostream>
 #include <conio.h>
+#include <stdio.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,5 +22,4 @@ class MyList
 	int add(element *new_item);
 	element* item(int kol);
 	element* output_list();
-	int items = 1;
 };

@@ -27,6 +27,7 @@ element * first, *last, *list;
 
  element * MyList::item(int kol)
  {
+	 int items = 1;
 	 list = first;
 	 while (items<kol)
 	 {
